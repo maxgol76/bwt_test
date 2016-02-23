@@ -1,6 +1,6 @@
 <?php
 
-class RegistratController extends Controller {
+class FeedbackController extends Controller {
 
 	public function __construct()
 	{
@@ -11,13 +11,13 @@ class RegistratController extends Controller {
 	
 	public function index()
 	{
-		echo "Hello from Registrat!";
-	}
+		echo "Hello from Feedback!";
+	}	
 	
 	public function form()
 	{		
 		$data = 'Here will be Form!';
-		$this->view->render('formregistr_view', $data);
+		$this->view->render('formfeedback_view', $data);
 	}	
 	
 	public function validat()

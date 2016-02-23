@@ -4,8 +4,8 @@ class Router
 {
 	static function execute()	
 	{		
-		$controller = 'Welcome';
-		$action = 'index';		
+		$controller = Config::get('default_controller'); //'Registrat';
+		$action = Config::get('default_action'); //'form';		
 			
 		$parts_url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 				

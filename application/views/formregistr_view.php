@@ -27,10 +27,10 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Registration</a></li>
+				<li class="active"><a href="/registrat/form">Registration</a></li>
 				<li><a href="#about">Weather</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="#contact">Feedback</a></li>
+				<li><a href="/feedback/form">Feedback</a></li>
 			  </ul>
 			</div><!--/.nav-collapse -->
 		  </div>
@@ -39,16 +39,34 @@
 		<div class="container">
            
 		  <div class="starter-template">
-		    <!--h1><?= $data?></h1-->  
-			<form class="form-signin">
-			<h2 class="form-signin-heading">Please register</h2>
+		    <!--h2><?= $data?></h2-->  
+			<form  action="/registrat/validat" role="form" method="post" class="form-horizontal">
+			<h3 class="form-signin-heading">Please register:</h3>
+			<input class="form-control" placeholder="First Name" name="fname" type="text"  pattern="[A-Za-z]{3,}" required autofocus>
+			<input class="form-control" placeholder="Second Name" name="sname" type="text" pattern="[A-Za-z]{6,}"required>
 			<label for="inputEmail" class="sr-only">Email address</label>
-			<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-			<label for="inputPassword" class="sr-only">Password</label>
-			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+			<input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required >
 			
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<label class="radio-inline">Sex:</label>
+			<label class="radio-inline">
+			  <input type="radio" name="sex" id="inlineRadio1" value="male"> Male
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="sex" id="inlineRadio2" value="female"> Female
+			</label>
+            <input class="form-control" placeholder="yyyy/mm/dd (Birthday)" name="birthday" type="text" pattern="[\d/]{10,10}" >			
+			
+			<!--
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input type="password" id="inputPassword" class="form-control" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required 
+             title="с"
+			> -->
+			
+			<button class="btn btn-lg btn-primary btn-block" type="submit" id="btnsignup">Sign up</button>
 		  </form>
+		  
+		  
+		  
 		  </div>
 
 		</div><!-- /.container -->   
