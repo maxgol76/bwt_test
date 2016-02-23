@@ -5,5 +5,9 @@ require_once 'view.php';
 require_once 'controller.php';
 require_once 'route.php';
 
-Router::execute(); 
+try {
+    Router::execute(); 
+} catch (Exception $e) {
+    echo 'Thrown exception: ',  $e->getMessage(), "\n";
+}
 

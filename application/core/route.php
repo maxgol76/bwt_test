@@ -4,7 +4,7 @@ class Router
 {
 	static function execute()	
 	{		
-		$controller = 'Main';
+		$controller = 'Welcome';
 		$action = 'index';		
 			
 		$parts_url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
@@ -33,26 +33,18 @@ class Router
 		if(file_exists($controllerPath)) {
 			include "application/controllers/".$controllerFile;
 		} else 	{
-			Router::ErrorPage404();
+			throw new Exception('File: "'.$controllerFile.'" does not exist.' );
 		}
 		
-		$controller = new $controller_name; // create controller
+		$controller = new $controller_name(); // create controller
 	
 		if(method_exists($controller, $action)) {
 			$controller->$action(); // call action of controller
 		} else 	{
-			Route::ErrorPage404();
+			throw new Exception('Action "'.$action.'" of controller "'.$controller_name.'" does not exist.' );   
 		} 
 	
-	}
-
-	function ErrorPage404()
-	{
-        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-        header('HTTP/1.1 404 Not Found');
-		header("Status: 404 Not Found");
-		header('Location:'.$host.'404');
-    }
+	}	
     
 }
 

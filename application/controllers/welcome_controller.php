@@ -2,6 +2,12 @@
 
 class WelcomeController extends Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		
+		//$this->load->model('user_model');	  
+	}
 	
 	public function index()
 	{
