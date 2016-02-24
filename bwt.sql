@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 23 2016 г., 17:31
+-- Время создания: Фев 24 2016 г., 18:16
 -- Версия сервера: 5.6.26
 -- Версия PHP: 5.5.28
 
@@ -48,7 +48,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `sex` enum('male','female') DEFAULT 'male',
   `birthday` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `fname`, `sname`, `email`, `sex`, `birthday`) VALUES
+(1, 'Petya', 'Kruglov', 'petkrug@gmail.com', 'male', '2000-09-02'),
+(2, 'Viktoria', 'Letvinova', 'viktletv@gmail.com', 'female', '1990-03-31'),
+(3, 'Sasha', 'Ivanov', 'sashivan@gmail.com', 'male', '1980-02-25'),
+(5, 'Max', 'Golovin', 'maxgol733@gmail.com', 'male', '1980-04-29'),
+(6, 'Max', 'Golovin', 'maxgol76@gmail.com', 'male', '1980-04-29'),
+(7, 'Semen', 'Golovin', 'maxgol76@gmail.com', 'male', '1980-04-29');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

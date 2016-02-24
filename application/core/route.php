@@ -2,8 +2,12 @@
 
 class Router
 {
+	public static $db ;
+	
 	static function execute()	
 	{		
+		self::$db = new DB(Config::get('db_host'), Config::get('db_user'), Config::get('db_passwor'), Config::get('db_name'));		
+		
 		$controller = Config::get('default_controller'); //'Registrat';
 		$action = Config::get('default_action'); //'form';		
 			
@@ -16,8 +20,7 @@ class Router
 		if (! empty($parts_url[1])) {
 			$action = $parts_url[1];
 		}
-
-		$model_name = $controller.'Model';
+		
 		$controller_name = $controller.'Controller';
 
 		$modelFile = strtolower($controller.'_model').'.php';

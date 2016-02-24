@@ -30,7 +30,7 @@
 				<li class="active"><a href="/registrat/form">Registration</a></li>
 				<li><a href="#about">Weather</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="/feedback/form">Feedback</a></li>
+				<li><a href="/feedback/show">Feedback</a></li>
 			  </ul>
 			</div><!--/.nav-collapse -->
 		  </div>
@@ -54,7 +54,7 @@
 			<label class="radio-inline">
 			  <input type="radio" name="sex" id="inlineRadio2" value="female"> Female
 			</label>
-            <input class="form-control" placeholder="yyyy/mm/dd (Birthday)" name="birthday" type="text" pattern="[\d/]{10,10}" >			
+            <input class="form-control" placeholder="yyyy-mm-dd (Birthday)" name="birthday" type="text" pattern="[\d-]{10,10}" >			
 			
 			<!--
 			<label for="inputPassword" class="sr-only">Password</label>
