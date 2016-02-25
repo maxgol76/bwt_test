@@ -43,9 +43,13 @@ class DB
 	  	return mysqli_affected_rows ( $this->connect );
 	}
 	
-	public function escape($str)
+	public function escape_string($str)
 	{		
 		$string = mysqli_real_escape_string ($this->connect, $str);		
 		return $string;
 	}	
+	public function num_rows($result)
+	{
+		return mysqli_num_rows($result);
+	}
 }

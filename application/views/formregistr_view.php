@@ -40,7 +40,10 @@
            
 		  <div class="starter-template">
 		    <!--h2><?= $data?></h2-->  
-			<form  action="/registrat/validat" role="form" method="post" class="form-horizontal">
+			
+			<form  action="" role="form" method="post" class="form-horizontal" id="form-registr">
+			<div id="alert-msg">
+			</div>
 			<h3 class="form-signin-heading">Please register:</h3>
 			<input class="form-control" placeholder="First Name" name="fname" type="text"  pattern="[A-Za-z]{3,}" required autofocus>
 			<input class="form-control" placeholder="Second Name" name="sname" type="text" pattern="[A-Za-z]{6,}"required>
@@ -62,14 +65,40 @@
              title="с"
 			> -->
 			
-			<button class="btn btn-lg btn-primary btn-block" type="submit" id="btnsignup">Sign up</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit_reg" id="btnsignup">Sign up</button>
 		  </form>
 		  
 		  
 		  
 		  </div>
 
-		</div><!-- /.container -->   
+		</div><!-- /.container -->  
+
+        <script type="text/javascript">
+			$(document).ready(function() {
+				$("#form-registr").submit(function() {
+					var form_data = $('#form-registr').serialize(); 
+					//alert (form_data);
+					
+					$.ajax({
+						url: "/registrat/validat",
+						type: 'POST',
+						data: form_data,
+						success: function (msg) {							
+								$('#alert-msg').html(msg);						
+								
+								if (msg.indexOf('success')!=-1) {
+									$('#form-registr').delay(2000).fadeOut(1000);
+								} 
+						}
+					});
+					return false;
+				});
+				
+			});
+				//$('#task_calend2').hide();
+		</script>
+		
     
   </body>
 </html>

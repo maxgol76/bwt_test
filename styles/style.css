@@ -12,19 +12,26 @@ padding-top: 1px;
 
 form , .form-signin
 {
-width: 400px;
-text-align:left;
+ width: 400px;
+//text-align: center;
+ margin-left: 30%;
+}
+}
+
+.btn-block {
+    display: block;
+    width: 200px;	
 }
 
 #btnsignup
 {
 margin-top: 30px;
-width: 200px;
+max-width: 200px;
 }
 
 .starter-template , .container
 {
-text-align:center;
+//text-align:center;
 }
 
 .radio-inline
@@ -105,7 +112,7 @@ text-decoration: none;
 body
 {
 padding-top: 80px;
-text-align:center;
+//text-align:center;
 
 }
 

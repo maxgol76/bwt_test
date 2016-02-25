@@ -9,8 +9,7 @@ class RegistratModel extends Model {
 		
 	public function add_user($data) 
 	{	
-		$sql = "INSERT INTO users (fname, sname, email, sex, birthday) 	VALUES ( '$data[fname]', '$data[sname]', '$data[email]', '$data[sex]', '$data[birthday]')";
-		
+		$sql = "INSERT INTO users (fname, sname, email, sex, birthday) 	VALUES ( '$data[fname]', '$data[sname]', '$data[email]', '$data[sex]', '$data[birthday]')";		
         $this->db->query($sql);		  
 		 
 		if ($this->db->affected_rows() > 0) {
@@ -21,17 +20,28 @@ class RegistratModel extends Model {
 	}	
 	
 	public function similar_email ($email)  // проверка на схожесть email
-    {
-		$this->db->where('email', $email);
-		$query = $this->db->get('user');
+    {	
+		$sql = "SELECT * FROM users WHERE email = '$email' LIMIT 1";		
+        $res = $this->db->query($sql);	
 		
-		$sql = "SELECT * FROM users WHERE email = '$email'";
+        if ($this->db->num_rows($res) > 0) {
+			return true;
+		} else {
+		    return false;
+		} 
+
 		
-        $this->db->query($sql);	
+    }
 
-
-		//return $query->num_rows() ;
-    }		
+    public function real_escape_string($data)
+	{
+		return $this->db->escape_string($data);
+	} 	
+	
+	public function get_num_rows($res)
+	{
+		return ;
+	} 	
 	
 }
 ?>
