@@ -17,7 +17,7 @@ class ContactController extends Controller {
 	public function form()
 	{		
 		$data = 'Here will be Form!';
-		$this->view->render('formfeedback_view', $data);
+		$this->view->render('feedbackform_view', $data);
 	}	
 	
 	public function validat()

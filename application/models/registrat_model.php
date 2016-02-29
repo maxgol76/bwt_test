@@ -1,7 +1,7 @@
 <?php
 
-class RegistratModel extends Model {
-
+class RegistratModel extends Model 
+{
 	public function __construct()
 	{
 		parent::__construct();
@@ -28,20 +28,13 @@ class RegistratModel extends Model {
 			return true;
 		} else {
 		    return false;
-		} 
-
-		
+		} 		
     }
 
     public function real_escape_string($data)
 	{
 		return $this->db->escape_string($data);
-	} 	
-	
-	public function get_num_rows($res)
-	{
-		return ;
-	} 	
+	} 		
 	
 }
 ?>

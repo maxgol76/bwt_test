@@ -17,12 +17,11 @@ class RegistratController extends Controller
 	public function form()
 	{		
 		$data = 'Here will be Form!';
-		$this->view->render('formregistr_view', $data);
+		$this->view->render('registrform_view', $data);
 	}	
 	
 	public function validat()
-	{		
-		//if (isset($_POST['submit_reg'])) {		    
+	{			    
 		if ($_POST) {		    
 			$msg = '';			
 			$email = $this->clean_data($_POST['email']); 
@@ -38,23 +37,44 @@ class RegistratController extends Controller
 		    $fname = $this->clean_data($_POST['fname']); 
 			$fname = filter_var($fname, FILTER_SANITIZE_STRING);
 			if ( !empty($fname)) {
-			    if ( ! $this->ok_check_length($fname, 3, 50)) {
+			    if ( ! $this->ok_check_length($fname, 3, 20)) {
 					$msg .= "<div class='alert alert-danger'> First Name is not correct; </div>";
 				}
 			} else {
 				$msg .= "<div class='alert alert-danger'> First Name must be not empty; </div>";
 			}		
+			
+			$sname = $this->clean_data($_POST['sname']); 
+			$sname = filter_var($sname, FILTER_SANITIZE_STRING);
+			if ( !empty($sname)) {
+			    if ( ! $this->ok_check_length($sname, 3, 50)) {
+					$msg .= "<div class='alert alert-danger'> Second Name is not correct; </div>";
+				}
+			} else {
+				$msg .= "<div class='alert alert-danger'> Second Name must be not empty; </div>";
+			}		
+			
+			$birthday = $this->clean_data($_POST['birthday']); 
+			$birthday = filter_var($birthday, FILTER_SANITIZE_STRING);
+			if ( !preg_match('~(\d{4}\-\d{2}\-\d{2})+~', $birthday)) {
+				$msg .= "<div class='alert alert-danger'> Birthday is not correct; </div>";
+			}  
+  
+			
+			$sex = $_POST['sex'];
+			if (empty($sex)) {
+				$sex = male;
+			}
 
-			if (empty($msg)) {
-				       // если нет такого же email в БД то OK 
+			if (empty($msg)) {				       
 				if ( !$this->model->similar_email($email)) {
-					$data = array(
+					$data = [
 						'fname' => $fname,
-						'sname' => $_POST['sname'],
+						'sname' => $sname,
 						'email' => $email,
-						'birthday' => $_POST['birthday'],
-						'sex' => $_POST['sex']
-					);			
+						'sex'   => $sex,
+						'birthday' => date('Y-m-d',strtotime($birthday))						
+					];			
 				
 					if ($this->model->add_user($data)) {
 						$msg .= "<div class='alert alert-success text-center'>Registration has been successfully!</div>";
