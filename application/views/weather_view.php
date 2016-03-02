@@ -10,13 +10,11 @@
     <!-- Bootstrap -->
 	<script type="text/javascript" src="/assets/js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>  
-    <script type="text/javascript" src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/js/moment-with-locales.min.js"></script>     
 
     <!--load bootstrap css-->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />   
-	<link href="/assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />   
-	<link href="/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />   	
     <link href='/styles/style.css' rel='stylesheet' type='text/css' />
    
   </head>
@@ -29,8 +27,8 @@
 			<div id="navbar" class="collapse navbar-collapse">
 			  <ul class="nav navbar-nav">
 				<li><a href="/registrat/form">Registration</a></li>
-				<li  class="active"><a href="#about">Weather</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li class="active"><a href="/weather/show">Weather</a></li>
+				<li><a href="/contact/form">Contact</a></li>
 				<li><a href="/feedback/show">Feedback</a></li>
 			  </ul>
 			</div><!--/.nav-collapse -->
@@ -39,17 +37,12 @@
 
 		<div class="container">           
 		  <div class="starter-template">
-		  
+		  <h3>Погода в Запорожье</h3>
+		  <div id="weath">
 		   <?= $data?>	
-		   
+		  </div> 
 		  </div>		  
-		</div><!-- /.container -->  
-
-        <script type="text/javascript">
-		
-		//$(#leftCol).
-		
-		</script>	
+		</div><!-- /.container -->          
     
   </body>
 </html>

@@ -16,7 +16,7 @@ class RegistratController extends Controller
 	
 	public function form()
 	{		
-		$data = 'Here will be Form!';
+		$data = 'Registr Form!';
 		$this->view->render('registrform_view', $data);
 	}	
 	

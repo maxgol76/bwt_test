@@ -30,7 +30,7 @@
 			  <ul class="nav navbar-nav">
 				<li class="active"><a href="/registrat/form">Registration</a></li>
 				<li><a href="/weather/show">Weather</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li><a href="/contact/form">Contact</a></li>
 				<li><a href="/feedback/show">Feedback</a></li>
 			  </ul>
 			</div><!--/.nav-collapse -->
@@ -43,8 +43,7 @@
 		    <!--h2><?= $data?></h2-->  
 			
 			<form  action="" role="form" method="post" class="form-horizontal" id="form-registr">
-			<div id="alert-msg">
-			</div>
+			<div id="alert-msg"></div>
 			<h3 class="form-signin-heading">Please register:</h3>
 			<input class="form-control" placeholder="First Name" name="fname" type="text"  pattern="[A-Za-z]{3,20}" required autofocus>
 			<input class="form-control" placeholder="Second Name" name="sname" type="text" pattern="[A-Za-z]{6,50}"required>

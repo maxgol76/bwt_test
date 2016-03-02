@@ -23,19 +23,30 @@ class DB
 		
 		if (mysqli_error($this->connect)) {
 			throw new Exception(mysqli_error($this->connect));
+		}	
+		
+		return $res ;		
+	}
+	
+	public function query_sel($sql)
+	{
+		if ( ! $this->connect) {
+			return false;
 		}
 		
-		if (is_bool($result)) {
-			return $res ;
-		}
-		/*
-		$data_arr = array();
+		$res = $this->connect->query($sql);
+		
+		if (mysqli_error($this->connect)) {
+			throw new Exception(mysqli_error($this->connect));
+		}	
+		
+		$data = array();
 		
 		while($row = mysqli_fetch_assoc($res)) {
-			$data_arr[] = $row;
+			$data[] = $row;
 		}
-		return $data_arr;*/
-		return $res ;		
+		
+		return $data ;		
 	}
 	
 	public function affected_rows()

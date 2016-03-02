@@ -1,12 +1,14 @@
 <?php
+include "application/models/contact_model.php";
 
-class FeedbackController extends Controller {
+class FeedbackController extends Controller 
+{
 
 	public function __construct()
 	{
 		parent::__construct();
 		
-		//$this->load->model('user_model');	  
+		$this->model = new ContactModel();  
 	}
 	
 	public function index()
@@ -16,9 +18,7 @@ class FeedbackController extends Controller {
 	
 	public function show()
 	{		
-		$res = Router::$db->query('SELECT * FROM users');
-		echo "<pre>";
-		print_r($res);
+		$data = $this->model->show_feedback();
+		$this->view->render('feedback_view', $data);
 	}		
 }
-?>
