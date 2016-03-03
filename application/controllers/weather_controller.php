@@ -23,8 +23,11 @@ class WeatherController extends Controller
 		$body = $res->getBody();
 		
 		$document = \phpQuery::newDocumentHTML($body);        
-        $data = $document->find(".wMain"); 
+        $data['weather'] = $document->find(".wMain"); 				
+		$data['title'] = 'Weather';
 		
+		$this->view->render('header', $data);
 		$this->view->render('weather_view', $data);		
+		$this->view->render('footer');
 	}	
 }

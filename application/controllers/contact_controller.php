@@ -15,15 +15,25 @@ class ContactController extends Controller
 	}	
 	
 	public function form()
-	{		
-		$data = 'Contact Form!';
-		$this->view->render('contactform_view', $data);
+	{			
+		$data['title'] = 'Contact';		
+		
+		$this->view->render('header', $data);
+		$this->view->render('contactform_view');
+		$this->view->render('footer');
 	}	
 	
 	public function validat()
-	{			    
+	{	
+	    session_start(); 
+
 		if ($_POST) {		    
-			$msg = '';						
+			$msg = '';										
+			
+			if ($_SESSION["captcha_code"] != $_POST["captcha"]) {			
+			  $msg .= "<div class='alert alert-danger'> Invalid Security Code; </div>";
+			}			
+			
 			$name = $this->clean_data($_POST['name']); 
 			$name = filter_var($name, FILTER_SANITIZE_STRING);
 			
@@ -48,6 +58,7 @@ class ContactController extends Controller
 			
 			$message = $this->clean_data($_POST['message']); 
 			$message = filter_var($message, FILTER_SANITIZE_STRING);
+			
 			if ( !empty($message)) {
 			    if ( ! $this->ok_check_length($message, 6, 1000)) {
 					$msg .= "<div class='alert alert-danger'> Message is not correct; </div>";
@@ -89,4 +100,3 @@ class ContactController extends Controller
 		return (mb_strlen($data) >= $min && mb_strlen($data) <= $max);		 
 	}	
 }
-?>

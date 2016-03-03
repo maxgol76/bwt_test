@@ -16,8 +16,11 @@ class RegistratController extends Controller
 	
 	public function form()
 	{		
-		$data = 'Registr Form!';
-		$this->view->render('registrform_view', $data);
+		$data['title'] = 'Registration';
+		
+		$this->view->render('header', $data);
+		$this->view->render('registrform_view');
+		$this->view->render('footer');
 	}	
 	
 	public function validat()
@@ -77,6 +80,7 @@ class RegistratController extends Controller
 					];			
 				
 					if ($this->model->add_user($data)) {
+						$_SESSION['user_name'] = $fname;
 						$msg .= "<div class='alert alert-success text-center'>Registration has been successfully!</div>";
 					} else {
 						$msg .= "<div class='alert alert-danger'> Registration failed, Please try again. </div>";
@@ -104,5 +108,13 @@ class RegistratController extends Controller
 	protected function ok_check_length($data = "", $min, $max)
 	{
 		return (mb_strlen($data) >= $min && mb_strlen($data) <= $max);		 
+	}
+	
+	public function logout()
+	{
+		unset($_SESSION['user_name']); 
+		session_destroy();
+		
+		$this->form();
 	}
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 02 2016 г., 18:23
+-- Время создания: Мар 03 2016 г., 16:05
 -- Версия сервера: 5.6.26
 -- Версия PHP: 5.6.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `email` varchar(100) NOT NULL,
   `message` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `messages`
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `messages` (
 INSERT INTO `messages` (`id`, `name`, `email`, `message`) VALUES
 (1, 'Alex', 'alex434@gmail.com', 'I like this site!'),
 (2, 'David', 'davidnom34@dmail.com', 'Thank you, on this site there is everything about what I dreamed!'),
-(3, 'Masha', 'mashala87@gmail.com', 'Hello. When you want to understand how visitors perceive your website, traffic data is only the beginning. Our expert-certified website feedback template will help you learn why visitors do what they do and how you can improve their experience. You’ll learn more about why people visit your site, what they hope to find, and whether you deliver the experience they expect.');
+(3, 'Masha', 'mashala87@gmail.com', 'Hello. When you want to understand how visitors perceive your website, traffic data is only the beginning. Our expert-certified website feedback template will help you learn why visitors do what they do and how you can improve their experience. You’ll learn more about why people visit your site, what they hope to find, and whether you deliver the experience they expect.'),
+(4, 'Dfghjuiop', 'maxgol76@gmail.com', 'sadsadsadsads');
 
 -- --------------------------------------------------------
 
@@ -57,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `sex` enum('male','female') DEFAULT 'male',
   `birthday` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Дамп данных таблицы `users`
@@ -68,21 +69,14 @@ INSERT INTO `users` (`id`, `fname`, `sname`, `email`, `sex`, `birthday`) VALUES
 (2, 'Viktoria', 'Letvinova', 'viktletv@gmail.com', 'female', '1990-03-31'),
 (3, 'Sasha', 'Ivanov', 'sashivan@gmail.com', 'male', '1980-02-25'),
 (5, 'Max', 'Golovin', 'maxgol733@gmail.com', 'male', '1980-04-29'),
-(6, 'Max', 'Golovin', 'maxgol76@gmail.com', 'male', '1980-04-29'),
-(7, 'Semen', 'Golovin', 'maxgol76@gmail.com', 'male', '1980-04-29'),
 (9, 'Maxim', 'asdasd', 'asdasd233@com.ua', 'male', '1980-04-29'),
-(10, 'Max', 'Golovin', 'maxgol76@gmail.com', '', '0000-00-00'),
-(12, 'Max', 'Golovin', 'maxgol733@gmail.com', '', '0000-00-00'),
-(15, 'Max', 'Golovin', 'maxgol76@yandex.ua', '', '0000-00-00'),
-(16, 'Max', 'asdasd', 'maxgol76@gail.com', '', '0000-00-00'),
 (17, 'Danil', 'Golovind', 'maol76@yandex.ua', 'male', '2000-07-14'),
 (18, 'Danil', 'Fikerytfds', 'asdasd5233@com.ua', '', '2016-02-25'),
 (19, 'Maxesfsd', 'Golovinewrwe', 'maxgdsfsdol733@gmail.com', 'female', '1950-01-31'),
 (20, 'Semen', 'sadasdasd', 'maxsdgol733@gmail.com', 'male', '1970-01-01'),
 (21, 'Maxesfsd', 'sdfsdf', 'asssdasd233@com.ua', 'female', '1970-01-01'),
-(22, 'Maxesfsd', 'Golovin', 'maxgdsol76@gmail.com', 'male', '1940-06-22'),
 (23, 'Maxesfsd', 'Golovin', 'maxgzxzol76@gmail.com', 'male', '2012-04-01'),
-(24, 'Qewqrwqe', 'Sfgdgdfgdf', 'masssxgol733@gmail.com', 'female', '2016-02-09');
+(25, 'Semen', 'Golovin', 'maol76@gmail.com', 'male', '1970-02-04');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

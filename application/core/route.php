@@ -2,15 +2,14 @@
 
 class Router
 {
+	protected static $controllerName ;
 	public static $db ;
 	
 	static function execute()	
-	{		
-		self::$db = new DB(Config::get('db_host'), Config::get('db_user'), Config::get('db_passwor'), Config::get('db_name'));		
-		
+	{					
 		$controller = Config::get('default_controller'); //'Registrat';
-		$action = Config::get('default_action'); //'form';		
-			
+		$action = Config::get('default_action'); //'form';				
+		
 		$parts_url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 				
 		if (! empty($parts_url[0])) {	
@@ -26,6 +25,8 @@ class Router
 		$modelFile = strtolower($controller.'_model').'.php';
 		$modelPath = "application/models/".$modelFile;
 		
+		self::$db = new DB(Config::get('db_host'), Config::get('db_user'), Config::get('db_passwor'), Config::get('db_name'));			
+		
 		if(file_exists($modelPath)) {
 			include "application/models/".$modelFile;
 		}
@@ -35,6 +36,7 @@ class Router
 		
 		if(file_exists($controllerPath)) {
 			include "application/controllers/".$controllerFile;
+			self::$controllerName = $controller;
 		} else 	{
 			throw new Exception('File: "'.$controllerFile.'" does not exist.' );
 		}
@@ -45,10 +47,13 @@ class Router
 			$controller->$action(); // call action of controller
 		} else 	{
 			throw new Exception('Action "'.$action.'" of controller "'.$controller_name.'" does not exist.' );   
-		} 
-	
+		} 	
 	}	
-    
+	
+	static function getController()	
+	{	
+		return self::$controllerName;
+	}
 }
 
 

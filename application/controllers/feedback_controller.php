@@ -18,7 +18,12 @@ class FeedbackController extends Controller
 	
 	public function show()
 	{		
-		$data = $this->model->show_feedback();
+		$data['title'] = 'Feedback';
+		$data['feedback'] = $this->model->show_feedback();			
+		
+		$this->view->render('header', $data);
 		$this->view->render('feedback_view', $data);
+		$this->view->render('footer');
+
 	}		
 }
